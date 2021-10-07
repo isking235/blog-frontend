@@ -43,14 +43,16 @@ const Footer = styled.div`
     text-align : right;
     a {
         color: ${palette.gray[2]};
-        text-text-decoration : underline;
+        text-decoration : underline;
         &:hover {
             color: ${palette.gray[9]};
         }
     }
 `;
 
-
+const ButtonWithMarginTop = styled(Button)`
+    margin-top: 1rem;
+`
 
 const AuthForm = () => {
     return (
@@ -64,7 +66,9 @@ const AuthForm = () => {
                     placeholder="비밀번호"
                     type="password"
                 />
-                <Button>로그인</Button>
+                <ButtonWithMarginTop cyan fullWidth>
+                    로그인
+                </ButtonWithMarginTop>
             </form>
             <Footer>
                 <Link to="/register">회원가입</Link>
