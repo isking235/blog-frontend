@@ -1,8 +1,8 @@
-import {createAction, handleActions} from 'redux-action';
-import {takeLatest} from 'redux-saga/effects';
+import { createAction, handleActions } from 'redux-actions';
+import { takeLatest } from 'redux-saga/effects';
 import * as authAPI from '../lib/api/auth';
 import createRequestSaga, {
-    createRequestActionTypes,
+    createRequestActionTypes
 } from '../lib/createRequestSaga';
 
 const TEMP_SET_USER = 'user/TEMP_SET_USER'; //새로고침 이후 임시 로그인 처리
@@ -16,31 +16,31 @@ export const tempSetUser = createAction(TEMP_SET_USER, user => user);
 export const check = createAction(CHECK);
 
 const checkSaga = createRequestSaga(CHECK, authAPI.check);
-export function * userSaga() {
+export function* userSaga() {
     yield takeLatest(CHECK, checkSaga);
 }
 
 const initialState = {
-    user : null,
-    checkError : null,
-};
+    user: null,
+    checkError: null
+  };
 
-export default handleActions(
+export default handleActions (
     {
-        [TEMP_SET_USER]: (state, {payload:user}) => ({
-            ...state,
-            user,
-        }),
-        [CHECK_SUCCESS]:(state, {payload:user}) => ({
-            ...state,
-            user,
-            checkError: null,
-        }),
-        [CHECK_FAILURE] : (state, {payload:error}) => ({
-            ...state,
-            user : null,
-            checkError: error,
-        }),
+      [TEMP_SET_USER]: (state, { payload: user }) => ({
+        ...state,
+        user
+      }),
+      [CHECK_SUCCESS]: (state, { payload: user }) => ({
+        ...state,
+        user,
+        checkError: null
+      }),
+      [CHECK_FAILURE]: (state, { payload: error }) => ({
+        ...state,
+        user: null,
+        checkError: error
+      })
     },
     initialState
-);
+  );

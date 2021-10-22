@@ -29,7 +29,6 @@ const RegisterForm = () => {
 
     //폼 등록 이벤트 핸들러
      const onSubmit = e => {
-         debugger;
          e.preventDefault();
          const {username, password, passwordConfirm} = form;
          if(password !== passwordConfirm) {
