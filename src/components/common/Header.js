@@ -48,7 +48,7 @@ const Header = ({user}) => {
         <>
             <HeaderBlock>
                 <Wrapper>
-                    <Link to="/" classname="logo">
+                    <Link to="/" className="logo">
                         REACTERS
                      </Link>
                      {user? (
