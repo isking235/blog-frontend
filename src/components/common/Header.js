@@ -43,7 +43,7 @@ const UserInfo = styled.div`
     margin-right: 1rem;
 `;
 
-const Header = ({user}) => {
+const Header = ({user, onLogout}) => { //로그아웃 버튼을 누르면 해당 함수가 호출
     return (
         <>
             <HeaderBlock>
@@ -54,7 +54,7 @@ const Header = ({user}) => {
                      {user? (
                         <div className="right">
                             <UserInfo>{user.username}</UserInfo>
-                            <Button>로그아웃</Button>
+                            <Button onClick={onLogout}>로그아웃</Button>
                         </div>     
                      ):(
                         <div className="right">
