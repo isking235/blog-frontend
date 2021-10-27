@@ -70,7 +70,7 @@ const PostList = ({posts, loading, error, showWriteButton}) => {
                 	</Button>	
 				)}
             </WritePostButtonWrapper>
-			/*로딩 중이 아니고, 포스트 배열이 존재 할때만 보여 줌 */
+			{/*로딩 중이 아니고, 포스트 배열이 존재 할때만 보여 줌 */}
 			{!loading && posts && (
 				<div>
 					{posts.map(post => (
